@@ -25,6 +25,7 @@ export class AddEmployeeComponent implements OnInit {
             this.EmpId  = params['EmpId'];
             if (this.EmpId  !== '' ) {
                 this.title = 'Edit Employees' ;
+                this.getEmployeeById(this.EmpId);
             } else {
                 this.title = 'Add Employees' ;
                 // this.intiForm();
