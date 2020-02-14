@@ -1,0 +1,23 @@
+<div><h1>Employee List</h1></div>
+<div><button type="button"  (click)="AddEmployee()">Add Employee</button></div>
+<div class="g-12">
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birthday Name</th>
+            <th>Email Name</th>
+            <th>Operation</th>
+        </tr>
+        <tr *ngFor="let item of employeeList">
+            <td>{{item.firstname}}</td>
+            <td>{{item.lastname}}</td>
+            <td>{{item.birthday}}</td>
+            <td>{{item.email}}</td>
+            <td>
+               <button type="button" (click)="GoToUpdate(item)">Update</button>
+               <button type="button" (click)="Delete(item)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

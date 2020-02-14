@@ -1,0 +1,21 @@
+<div>{{title}}</div>
+<div class="g-12">
+    
+    <form [formGroup]="addForm" (ngSubmit)="submit()">
+        <div class="g-12">
+            First Name : <input type="text" id="firstNameId" formControlName="firstname">  
+        </div>
+        <div class="g-12">
+            Last Name : <input type="text" id="lastnameId" formControlName="lastname">  
+        </div>
+        <div class="g-12">
+            Birthday: <input type="text" id="birthdayId" formControlName="birthday">  
+        </div>
+        <div class="g-12">
+            Email : <input type="text" id="emailId" formControlName="email">  
+        </div>
+        <button type="submit">Add Employee</button>
+
+    </form>
+   
+</div>
