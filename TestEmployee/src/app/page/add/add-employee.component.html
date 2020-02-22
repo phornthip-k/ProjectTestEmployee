@@ -14,8 +14,8 @@
         <div class="g-12">
             Email : <input type="text" id="emailId" formControlName="email">  
         </div>
-        <button type="submit">Add Employee</button>
-
+        <button type="submit" *ngIf="!modeEdit">Add Employee</button>
+        <button type="button" (click)="Update()" *ngIf="modeEdit">Update Employee</button>
     </form>
    
 </div>
