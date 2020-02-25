@@ -1,6 +1,12 @@
-<div><h1>Employee List</h1></div>
-<div><button type="button"  (click)="AddEmployee()">Add Employee</button></div>
-<div class="g-12">
+<div class="row">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+        <h1>Employee List</h1>
+    </div>
+</div>
+<div class="col-lg-12">
+    <button pButton type="button" class="ui-button-success"  (click)="AddEmployee()" label="Add Employee"></button>
+</div>
+<div class="col-lg-12">
     <table>
         <tr>
             <th>First Name</th>
@@ -12,12 +18,15 @@
         <tr *ngFor="let item of employeeList">
             <td>{{item.firstname}}</td>
             <td>{{item.lastname}}</td>
-            <td>{{item.birthday}}</td>
+            <td>{{item.birthday | date : 'dd/MM/yyyy'}}</td>
             <td>{{item.email}}</td>
             <td>
-               <button type="button" (click)="GoToUpdate(item)">Update</button>
-               <button type="button" (click)="Delete(item)">Delete</button>
+               <button type="button" pButton class="ui-button-warning" (click)="GoToUpdate(item)" label="Update"></button>
+               <button type="button" pButton class="ui-button-danger" (click)="Delete(item)" label="Delete"></button>
             </td>
         </tr>
     </table>
+    <div class="col-lg-12">
+        <button type="button" pButton class="ui-button-info"  label="Loout" (click)="logout()"></button>
+    </div>
 </div>

@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Login</h1>
+    </div>
+    <div class="col-lg-12">
+        <form class="m-form m-form--fit m-form--label-align-right" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="col-lg-12">
+                <label for="usernameId" class="col-lg-3">Username :</label>
+                <div class="col-lg-9">
+                    <input type="text" pInputText formControlName="username" >
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <label for="passwordId" class="col-lg-3">Password :</label>
+                <div class="col-lg-9">
+                    <input type="text" pInputText formControlName="password" >
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <button type="submit" pButton class="ui-button-info" label="Login" ></button>
+                <button type="button" pButton class="ui-button-danger"  (click)="cancel()" label="Cancel"></button>
+            </div>
+        </form>
+        <p-messages [(value)]="msgs"></p-messages>
+
+    </div>
+</div>

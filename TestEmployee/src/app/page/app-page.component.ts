@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AppPageComponent implements OnInit {
     employeeList: object;
     addForm: FormGroup;
+    error: string;
     constructor(
         private appService: AppService,
         private router: Router
@@ -18,11 +19,14 @@ export class AppPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.appService.getEmployeeList().subscribe(res => {
+            // if (res.status === '200') {
+            this.employeeList = res;
+           //  }
             // if (res > 0 ) {
-                this.employeeList = res;
             // }
-            // console.log(res);
-        });
+            console.log(res);
+        },
+        error => this.error = error );
     }
     AddEmployee() {
         this.router.navigate(['/add']);
@@ -32,7 +36,6 @@ export class AppPageComponent implements OnInit {
     }
     Delete(rowData) {
         this.appService.deleteEmployee(rowData._id).subscribe( res => {
-                console.log(res);
                 this.GetEmployeeList();
             });
     }
@@ -43,5 +46,8 @@ export class AppPageComponent implements OnInit {
             // }
             // console.log(res);
         });
+    }
+    logout() {
+        this.router.navigate(['']);
     }
 }

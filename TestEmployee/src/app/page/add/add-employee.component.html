@@ -1,21 +1,52 @@
+<div class="row">
+
 <div>{{title}}</div>
-<div class="g-12">
-    
-    <form [formGroup]="addForm" (ngSubmit)="submit()">
-        <div class="g-12">
-            First Name : <input type="text" id="firstNameId" formControlName="firstname">  
+<div class="col-lg-12">   
+    <form class="m-form m-form--fit m-form--label-align-right" [formGroup]="addForm" (ngSubmit)="submit()">
+        <div class="form-group  m-form__group row">
+            <div class="ui-g-12 ui-md-12 ui-lg-12">
+                <label for="year" class="ui-g-3 ui-md-3 ui-lg-3"> First Name : </label>
+                <div class="ui-g-9 ui-md-9 ui-lg-9"> 
+                    <input type="text" id="firstNameId" formControlName="firstname" pInputText required placeholder="First Name"> 
+                </div>
+            </div>
         </div>
-        <div class="g-12">
-            Last Name : <input type="text" id="lastnameId" formControlName="lastname">  
+        
+        <div class="form-group  m-form__group row">
+            <div class="ui-g-12 ui-md-12 ui-lg-12">
+                <label for="year" class="ui-g-3 ui-md-3 ui-lg-3"> Last Name :  </label>
+                <div class="ui-g-9 ui-md-9 ui-lg-9">
+                    <input type="text" id="lastnameId" formControlName="lastname" pInputText required placeholder="Last Name">  
+                </div>
+            </div>
         </div>
-        <div class="g-12">
-            Birthday: <input type="text" id="birthdayId" formControlName="birthday">  
+        
+        <div class="form-group  m-form__group row">
+            <div class="ui-g-12 ui-md-12 ui-lg-12">
+                <label for="year" class="ui-g-3 ui-md-3 ui-lg-3"> Birthday: </label>
+                <div class="ui-g-9 ui-md-9 ui-lg-9">
+                    <p-calendar formControlName="birthday" [showIcon]="true" id="float-input-calendar" dateFormat="dd/mm/yy"></p-calendar>
+                    <!-- <input type="text" id="birthdayId" formControlName="birthday" pInputText>   -->
+                </div>
+            </div>
         </div>
-        <div class="g-12">
-            Email : <input type="text" id="emailId" formControlName="email">  
+       
+        <div class="form-group  m-form__group row">
+            <div class="ui-g-12 ui-md-12 ui-lg-12">
+                <label for="year" class="ui-g-3 ui-md-3 ui-lg-3">  Email :  </label>
+                <div class="ui-g-9 ui-md-9 ui-lg-9">
+                    <input [class.is-invalid]="addForm.invalid && addForm.touched" type="email" pInputText id="emailId" placeholder="Email" formControlName="email" required>  
+                </div>
+            </div>
         </div>
-        <button type="submit" *ngIf="!modeEdit">Add Employee</button>
-        <button type="button" (click)="Update()" *ngIf="modeEdit">Update Employee</button>
+        <div class="form-group  m-form__group row">
+            <button type="submit" pButton class="ui-button-info" (click)="Back()"   label="Back"></button>
+            <button type="submit" pButton class="ui-button-success"  *ngIf="!modeEdit" [disabled]="!addForm.valid" label="Add"></button>
+            <button type="button" pButton class="ui-button-warning" (click)="Update()" *ngIf="modeEdit" label="Update"></button>
+        </div>
+
+      
     </form>
    
+</div>
 </div>
